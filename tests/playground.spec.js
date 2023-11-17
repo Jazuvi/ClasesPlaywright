@@ -11,7 +11,7 @@ test.describe('Pruebas de Sample app', () => {
     await page.getByRole('button', { name: 'Log In' }).click();
     const errorMessage = await page.getByText('Invalid username/password');
     await expect(errorMessage).toBeVisible();
-    await expect(errorMessage).toHaveCSS('color', '#dc3545');
+    await expect(errorMessage).toHaveCSS('color', 'rgb(220, 53, 69)');
     //rgb(220, 53, 69)
   });
 
