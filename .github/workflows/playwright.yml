@@ -13,11 +13,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install dependencies
+      - name: Instalacion de dependencias
         run: npm ci
-      - name: Install Playwright Browsers
+      - name: Instalacion de los navegadores de playwright
         run: npx playwright install --with-deps
-      - name: Run Playwright tests
+      - name: Ejecutar los tests de Playwright
         run: npx playwright test
       - uses: actions/upload-artifact@v3
         if: always()
@@ -25,4 +25,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-  lint:
