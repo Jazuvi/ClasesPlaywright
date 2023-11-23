@@ -16,24 +16,17 @@ test.describe('Pruebas de Sample app', () => {
   });
 
   test('Verificar que login funcione con una contraseña valida', async ({ page }) => {
+    // Given
     await page.goto('http://uitestingplayground.com/');
     await page.getByRole('link', { name: 'Sample App' }).click();
     await page.waitForLoadState('domcontentloaded');
-    await page.getByPlaceholder('User Name').fill('pepito');
-    await page.locator('input[name="Password"]').fill('pwd');
-    await page.getByRole('button', { name: 'Log In' }).click();
-    const successMessage = await page.locator('#loginstatus');
-    await expect(successMessage).toHaveClass('text-success');
-    await expect(successMessage).toHaveCSS('color', 'rgb(40, 167, 69)');
-  });
 
-  test('Verificar que el tercer test funcione', async ({ page }) => {
-    await page.goto('http://uitestingplayground.com/');
-    await page.getByRole('link', { name: 'Sample App' }).click();
-    await page.waitForLoadState('domcontentloaded');
+    // When
     await page.getByPlaceholder('User Name').fill('pepito');
     await page.locator('input[name="Password"]').fill('pwd');
     await page.getByRole('button', { name: 'Log In' }).click();
+
+    // Then
     const successMessage = await page.locator('#loginstatus');
     await expect(successMessage).toHaveClass('text-success');
     await expect(successMessage).toHaveCSS('color', 'rgb(40, 167, 69)');
